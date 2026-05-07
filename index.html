@@ -2,23 +2,24 @@
 <html>
 <head>
 <title>UTOP1A</title>
+
 <link rel="icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
 body{
-background:black;
 margin:0;
 height:100vh;
+background:black;
 overflow:hidden;
-font-family:Arial, sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
+font-family:Arial,sans-serif;
 }
 
-/* UFO LOGO */
+/* UFO */
 
 .logo{
 width:160px;
@@ -37,19 +38,21 @@ transform:translateX(-50%) rotateY(360deg);
 }
 }
 
-/* FOLDER */
+/* CENTER */
 
-.folder-section{
+.center{
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 }
 
+/* FOLDER */
+
 .file{
 position:relative;
-width:140px;
-height:95px;
+width:110px;
+height:70px;
 cursor:pointer;
 perspective:1500px;
 }
@@ -59,9 +62,7 @@ position:absolute;
 width:100%;
 height:100%;
 background:#d97706;
-border-radius:18px 18px 18px 0;
-top:0;
-left:0;
+border-radius:12px 12px 12px 0;
 transition:0.3s;
 }
 
@@ -69,8 +70,8 @@ transition:0.3s;
 .work-3,
 .work-2{
 position:absolute;
-inset:4px;
-border-radius:18px;
+inset:3px;
+border-radius:12px;
 transform-origin:bottom;
 transition:0.3s;
 }
@@ -91,9 +92,9 @@ background:#e4e4e7;
 position:absolute;
 bottom:0;
 width:100%;
-height:156px;
+height:68px;
 background:linear-gradient(to top,#d97706,#f59e0b);
-border-radius:18px 18px 18px 0;
+border-radius:12px 12px 12px 0;
 transform-origin:bottom;
 transition:0.3s;
 }
@@ -111,15 +112,17 @@ transform:rotateX(-38deg);
 }
 
 .file:hover .work-1{
-transform:rotateX(-46deg) translateY(1px);
+transform:rotateX(-46deg);
 }
+
+/* TEXT */
 
 .text{
 color:white;
 opacity:0.2;
-font-size:40px;
-margin-top:30px;
-letter-spacing:3px;
+font-size:16px;
+letter-spacing:4px;
+margin-top:18px;
 }
 
 </style>
@@ -129,7 +132,7 @@ letter-spacing:3px;
 
 <img src="https://i.ibb.co/Kp4kHgnm/1fbbdb74-113c-4a40-9caf-3ee1d830bb44-66c3ae0ccb8dd3-67838762.jpg" class="logo">
 
-<section class="folder-section">
+<div class="center">
 
 <div class="file">
 <div class="work-5"></div>
@@ -139,9 +142,9 @@ letter-spacing:3px;
 <div class="work-1"></div>
 </div>
 
-<p class="text">bourdain</p>
+<div class="text">bourdain</div>
 
-</section>
+</div>
 
 </body>
 </html>
