@@ -29,22 +29,27 @@ transform:translateX(-50%) rotateY(360deg);
 }
 }
 
-/* folder button */
-.button {
+/* folder wrapper — centers and scales down */
+.folder-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.6);
+  transform-origin: center center;
+}
+
+/* From Uiverse.io by simontheonlyone — UNTOUCHED */
+.button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3.2em;
-  height: 3.2em;
+  width: 5.3em;
+  height: 5.3em;
   border: none;
   cursor: pointer;
   border-radius: 0.4em;
-  background: rgba(235, 252, 254, 0.08);
-  font-size: 10px;
+  background: rgba(235, 252, 254, 0.8);
 }
 .container {
   position: relative;
@@ -140,16 +145,13 @@ transform:translateX(-50%) rotateY(360deg);
   top: -4.5em;
   width: 7.7em;
   height: 2.6em;
-  background-color: #333;
+  background-color: #666;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
   border-radius: 5px;
-  font-family: sans-serif;
-  font-size: 1.3em;
-  letter-spacing: 0.05em;
   text-shadow: 0 0 10px rgb(0, 0, 0);
   opacity: 0;
   transition: all 0.25s linear;
@@ -163,17 +165,19 @@ transform:translateX(-50%) rotateY(360deg);
 
 <img src="https://i.ibb.co/Kp4kHgnm/1fbbdb74-113c-4a40-9caf-3ee1d830bb44-66c3ae0ccb8dd3-67838762.jpg" class="logo">
 
-<button class="button">
-  <span class="text">bourdain</span>
-  <div class="container">
-    <div class="folder folder_two"></div>
-    <div class="folder folder_one"></div>
-    <div class="folder folder_three">
-      <div class="folder folder_four"></div>
+<div class="folder-wrapper">
+  <button class="button">
+    <span class="text">bourdain</span>
+    <div class="container">
+      <div class="folder folder_two"></div>
+      <div class="folder folder_one"></div>
+      <div class="folder folder_three">
+        <div class="folder folder_four"></div>
+      </div>
     </div>
-  </div>
-  <div class="active_line"></div>
-</button>
+    <div class="active_line"></div>
+  </button>
+</div>
 
 </body>
 </html>
