@@ -1,1 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCHIVE — Artist Portfolio</title>
+<style>
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --off: #aaaaaa;
+  --mono: 'DM Mono', monospace;
+  --display: 'Bebas Neue', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--mono);
+  height: 100vh;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+/* ── LAYOUT ── */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ── LEFT ── */
+.left {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.left-label {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--off);
+  text-transform: uppercase;
+  writing-mode: horizontal-tb;
+}
+
+.left-index {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--off);
+}
+
+/* ── RIGHT ── */
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 48px 36px 52px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  border-left: 1px solid #111;
+}
+
+.right::-webkit-scrollbar {
+  display: none;
+}
+
+/* top block */
+.top-block {}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--off);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.title {
+  font-family: var(--display);
+  font-size: clamp(64px, 7vw, 110px);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.title span {
+  display: block;
+}
+
+.title span.indent {
+  padding-left: 0.6em;
+}
+
+.bio {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--off);
+  max-width: 340px;
+  font-weight: 300;
+  border-left: 1px solid #333;
+  padding-left: 16px;
+}
+
+/* divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #1a1a1a;
+  margin: 40px 0;
+}
+
+/* project list */
+.projects-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #444;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.project-list {
+  list-style: none;
+}
+
+.project-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 1px solid #111;
+  padding: 14px 0;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-item:last-child {
+  border-bottom: 1px solid #111;
+}
+
+.project-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0%; height: 1px;
+  background: var(--white);
+  transition: width 0.35s ease;
+}
+
+.project-item:hover::after {
+  width: 100%;
+}
+
+.project-name {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.2vw, 48px);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.2s;
+}
+
+.project-item:hover .project-name {
+  color: var(--off);
+}
+
+.project-meta {
+  font-size: 10px;
+  color: #333;
+  letter-spacing: 0.15em;
+  font-style: italic;
+  transition: color 0.2s;
+  text-align: right;
+}
+
+.project-item:hover .project-meta {
+  color: #666;
+}
+
+/* bottom strip */
+.bottom-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 16px;
+}
+
+.bottom-strip .contact {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #333;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bottom-strip .contact:hover {
+  color: var(--white);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--white);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+    height: auto;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+    grid-template-rows: 55vh auto;
+    height: auto;
+  }
+
+  .left {
+    height: 55vh;
+  }
+
+  .right {
+    height: auto;
+    padding: 32px 28px 48px;
+    border-left: none;
+    border-top: 1px solid #111;
+    overflow-y: visible;
+  }
+
+  .title {
+    font-size: clamp(52px, 12vw, 80px);
+  }
+
+  .project-name {
+    font-size: clamp(26px, 6vw, 40px);
+  }
+}
+
+/* ── ENTRANCE ── */
+.right > * {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.6s forwards;
+}
+
+.top-block    { animation-delay: 0.1s; }
+.divider      { animation-delay: 0.25s; }
+.projects-label { animation-delay: 0.3s; }
+.project-list { animation-delay: 0.35s; }
+.bottom-strip { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="split">
+
+  <!-- LEFT -->
+  <div class="left">
+    <span class="left-index">IMG — 001</span>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <div class="top-block">
+      <p class="eyebrow">Est. 2026 — Ongoing</p>
+      <h1 class="title">
+        <span>BOURDAIN</span>
+      </h1>
+      <p class="bio">
+        BOURDAIN is a voice from the dark learning how to speak again through art. each piece is a fragment of a lost soul, searching, breaking, rebuilding. inspired to inspire by the spirit of anthony bourdain, the collection carries the idea of finding light through experience, pain, culture, and honesty.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="projects-label">Selected Works</p>
+
+    <ul class="project-list">
+
+      <li class="project-item">
+        <span class="project-name">CHAPTER 1: I</span>
+        <span class="project-meta">0/10</span>
+      </li>
+
+      <li class="project-item">
+        <span class="project-name">CHAPTER 2: DONTWORRY</span>
+        <span class="project-meta">0/10</span>
+      </li>
+
+      <li class="project-item">
+        <span class="project-name">CHAPTER 3: HIDE</span>
+        <span class="project-meta">0/11</span>
+      </li>
+
+      <li class="project-item">
+        <span class="project-name">CHAPTER 4: LATENIGHTDRIVES</span>
+        <span class="project-meta">0/9</span>
+      </li>
+
+      <li class="project-item">
+        <span class="project-name">CHAPTER 5: FREE BIRD</span>
+        <span class="project-meta">0/10</span>
+      </li>
+
+    </ul>
+
+    <div class="bottom-strip">
+      <a class="contact" href="mailto:storeofutopia@gmail.com">storeofutopia@gmail.com</a>
+      <div class="status-dot" title="Available for commissions"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // hover on project items — log to console as placeholder
+  document.querySelectorAll('.project-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const name = item.querySelector('.project-name').textContent;
+      console.log('Selected:', name);
+    });
+  });
+</script>
+
+</body>
+</html>
