@@ -4,6 +4,7 @@
 <title>UTOP1A</title>
 <link rel="icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
 background:black;
@@ -11,6 +12,7 @@ margin:0;
 height:100vh;
 overflow:hidden;
 }
+
 /* logo */
 .logo{
 width:160px;
@@ -19,6 +21,7 @@ top:15px;
 left:50%;
 animation:spin 10s linear infinite;
 }
+
 /* rotation */
 @keyframes spin{
 from{
@@ -51,6 +54,7 @@ transform:translateX(-50%) rotateY(360deg);
   border-radius: 0.4em;
   background: rgba(235, 252, 254, 0.8);
 }
+
 .container {
   position: relative;
   width: 3.5em;
@@ -58,10 +62,12 @@ transform:translateX(-50%) rotateY(360deg);
   background: none;
   overflow: hidden;
 }
+
 .folder {
   content: "";
   position: absolute;
 }
+
 .folder_one {
   bottom: 0;
   width: 100%;
@@ -70,6 +76,7 @@ transform:translateX(-50%) rotateY(360deg);
   border-top: 2px solid rgb(206, 167, 39);
   background: linear-gradient(-35deg, rgb(238, 194, 47) 5%, rgb(255, 223, 118));
 }
+
 .folder_two {
   top: 5%;
   width: 38%;
@@ -80,6 +87,7 @@ transform:translateX(-50%) rotateY(360deg);
   background-color: rgb(206, 167, 39);
   box-shadow: 0 1px 5px -2px rgba(0, 0, 0, 0.5);
 }
+
 .folder_two::before {
   content: "";
   position: absolute;
@@ -91,6 +99,7 @@ transform:translateX(-50%) rotateY(360deg);
   border-top: 0.3em solid transparent;
   border-bottom: 0.3em solid transparent;
 }
+
 .folder_three {
   display: flex;
   align-items: center;
@@ -103,6 +112,7 @@ transform:translateX(-50%) rotateY(360deg);
   background: linear-gradient(-35deg, rgb(25, 102, 218), rgb(109, 165, 249));
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
+
 .folder_four {
   left: 1em;
   bottom: 0.3em;
@@ -112,6 +122,7 @@ transform:translateX(-50%) rotateY(360deg);
   background-color: rgb(20, 77, 163);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .active_line {
   content: "";
   position: absolute;
@@ -123,14 +134,17 @@ transform:translateX(-50%) rotateY(360deg);
   border-radius: 1em;
   transition: all 0.15s linear;
 }
+
 .button:active .active_line,
 .button:focus .active_line {
   width: 2.3em;
   background-color: rgb(41, 126, 255);
 }
+
 .button:focus .container {
   animation: wow 1s forwards;
 }
+
 @keyframes wow {
   20% { scale: 0.8; }
   30% { scale: 1; transform: translateY(0); }
@@ -139,8 +153,8 @@ transform:translateX(-50%) rotateY(360deg);
   80% { transform: translateY(0); }
   100% { scale: 1; }
 }
+
 .text {
-  content: "";
   position: absolute;
   top: -4.5em;
   width: 7.7em;
@@ -156,18 +170,21 @@ transform:translateX(-50%) rotateY(360deg);
   opacity: 0;
   transition: all 0.25s linear;
 }
+
 .button:hover .text {
   opacity: 1;
 }
 </style>
 </head>
+
 <body>
 
 <img src="https://i.ibb.co/Kp4kHgnm/1fbbdb74-113c-4a40-9caf-3ee1d830bb44-66c3ae0ccb8dd3-67838762.jpg" class="logo">
 
 <div class="folder-wrapper">
-  <button class="button">
+  <button class="button" onclick="window.location.href='bourdian.html'">
     <span class="text">bourdain</span>
+
     <div class="container">
       <div class="folder folder_two"></div>
       <div class="folder folder_one"></div>
@@ -175,6 +192,7 @@ transform:translateX(-50%) rotateY(360deg);
         <div class="folder folder_four"></div>
       </div>
     </div>
+
     <div class="active_line"></div>
   </button>
 </div>
